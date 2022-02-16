@@ -41,5 +41,5 @@ jobs:
         run: ansible-test sanity --docker -v --color
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
       - name: Run unit test
-        run: ansible-test units --docker -v --color
+        run: ansible-test units --docker -v --color --python 3.8
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
