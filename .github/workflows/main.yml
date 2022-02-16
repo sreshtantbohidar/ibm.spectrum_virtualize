@@ -39,6 +39,8 @@ jobs:
           /usr/bin/python3.8 -m pip install -r ansible_collections/ibm/spectrum_virtualize/requirements.txt
           pip install pytest
           /usr/bin/python3.8 -m pip install pytest
+          /usr/bin/python3.8 -c "import ansible.module_utils.compat.paramiko as paramiko;print(paramiko)"
+          /usr/bin/python3.8 -c "import ansible.module_utils.compat.paramiko as paramiko;print(paramiko==None)"
       - name: Run sanity tests spectrum_virtualize
         run: ansible-test sanity --docker -v --color
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
