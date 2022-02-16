@@ -30,7 +30,6 @@ jobs:
       - name: Install ansible (${{ matrix.ansible }})
         run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
 
-
       - name: Make directory for ansible-test 
         run: |
           pwd
@@ -39,8 +38,7 @@ jobs:
           pip install -r ansible_collections/ibm/spectrum_virtualize/requirements.txt
       - name: Run sanity tests spectrum_virtualize
         run: ansible-test sanity --docker -v --color
-        working-directory: ansible_collections/ibm/spectrum_virtualize
-      # Run the unit tests
+        working-directory: ./ansible_collections/ibm/spectrum_virtualize
       - name: Run unit test
         run: ansible-test units -v --color --docker --coverage
-        working-directory: ansible_collections/ibm/spectrum_virtualize
+        working-directory: ./ansible_collections/ibm/spectrum_virtualize
