@@ -42,4 +42,4 @@ jobs:
       # Run the unit tests
       - name: Run unit test
         run: ansible-test units -v --color --docker --coverage
-        working-directory: ./ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}
+        working-directory: ansible_collections/ibm/spectrum_virtualize
