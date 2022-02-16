@@ -31,11 +31,10 @@ jobs:
         ansible:
           # It's important that Sanity is tested against all stable-X.Y branches
           # Testing against `devel` may fail as new tests are added.
-        # - stable-2.9 # Only if your collection supports Ansible 2.9
+          # - stable-2.9
           - stable-2.10
           - stable-2.11
           - stable-2.12
-          - devel
     runs-on: ubuntu-latest
     steps:
 
@@ -88,11 +87,10 @@ jobs:
       fail-fast: true
       matrix:
         ansible:
-          # - stable-2.9 # Only if your collection supports Ansible 2.9
+          # - stable-2.9
           - stable-2.10
           - stable-2.11
           - stable-2.12
-          - devel
 
     steps:
       - name: Check out code
@@ -113,7 +111,7 @@ jobs:
       # OPTIONAL If your unit test requires Python libraries from other collections
       # Install them like this
       - name: Install collection dependencies
-        run: ansible-galaxy collection install ansible.netcommon ansible.utils -p .
+        run: pip install -r ansible_collections/${{env.NAMESPACE}}/${{env.COLLECTION_NAME}}/requirements.txt
 
       # Run the unit tests
       - name: Run unit test
