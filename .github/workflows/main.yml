@@ -56,7 +56,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10
+          python-version: 3.8
 
       - name: Install ansible (${{ matrix.ansible }})
         run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
@@ -67,5 +67,5 @@ jobs:
           mkdir -p ansible_collections/ibm/spectrum_virtualize
           rsync -av . ansible_collections/ibm/spectrum_virtualize --exclude ansible_collections/ibm/spectrum_virtualize
       - name: Run unit test cases
-        run: ansible-test units -v --color --docker --coverage --python 3.10
+        run: ansible-test units -v --color --docker --coverage --python 3.8
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
