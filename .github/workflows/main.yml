@@ -57,11 +57,11 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - name: Install ansible (${{ matrix.ansible }})
-        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
-        
       - name: Upgrade PIP
         run: pip install --upgrade pip
+
+      - name: Install ansible (${{ matrix.ansible }})
+        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
 
       - name: Make directory for ansible-test 
         run: |
@@ -123,11 +123,11 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
-      - name: Install ansible (${{ matrix.ansible }})
-        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
-
       - name: Upgrade PIP
         run: pip install --upgrade pip
+
+      - name: Install ansible (${{ matrix.ansible }})
+        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
 
       - name: Make directory for ansible-test 
         run: |
