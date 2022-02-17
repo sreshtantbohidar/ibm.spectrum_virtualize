@@ -49,7 +49,7 @@ jobs:
           - stable-2.9
           - stable-2.10
           - stable-2.11
-          #- stable-2.12
+          - stable-2.12
         python:
           #- '2.6'
           - '2.7'
