@@ -45,7 +45,9 @@ jobs:
           - ansible: stable-2.12
             python: '3.5'
           - ansible: stable-2.12
-            python: '3.6'          
+            python: '3.6'
+          - ansible: stable-2.12
+            python: '3.7'
     steps:
       - name: Check out code
         uses: actions/checkout@v2
