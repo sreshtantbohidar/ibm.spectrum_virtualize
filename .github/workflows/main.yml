@@ -124,7 +124,7 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Upgrade PIP
-        run: pythom${{ matrix.python }} -m pip install --upgrade pip
+        run: python${{ matrix.python }} -m pip install --upgrade pip
 
       - name: Install ansible (${{ matrix.ansible }})
         run: python${{ matrix.python }} -m pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
