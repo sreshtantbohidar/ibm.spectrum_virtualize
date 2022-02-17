@@ -40,12 +40,12 @@ jobs:
             python: '3.10'
           - ansible: stable-2.11
             python: '3.10'
-          #- ansible: stable-2.12
-          #  python: '2.7'
-          #- ansible: stable-2.12
-          #  python: '3.5'
-          #- ansible: stable-2.12
-          #  python: '3.6'          
+          - ansible: stable-2.12
+            python: '2.7'
+          - ansible: stable-2.12
+            python: '3.5'
+          - ansible: stable-2.12
+            python: '3.6'          
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -100,14 +100,14 @@ jobs:
             python: '3.10'
           - ansible: stable-2.11
             python: '3.10'
-          #- ansible: stable-2.12
-          #  python: '2.7'
-          #- ansible: stable-2.12
-          #  python: '3.5'
-          #- ansible: stable-2.12
-          #  python: '3.6'
-          #- ansible: stable-2.12
-          #  python: '3.7'
+          - ansible: stable-2.12
+            python: '2.7'
+          - ansible: stable-2.12
+            python: '3.5'
+          - ansible: stable-2.12
+            python: '3.6'
+          - ansible: stable-2.12
+            python: '3.7'
             
     steps:
       - name: Check out code
