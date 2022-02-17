@@ -67,5 +67,5 @@ jobs:
           mkdir -p ansible_collections/ibm/spectrum_virtualize
           rsync -av . ansible_collections/ibm/spectrum_virtualize --exclude ansible_collections/ibm/spectrum_virtualize
       - name: Run unit test cases
-        run: ansible-test units -v --color --coverage
+        run: ansible-test units -v --color --coverage --python 3.8
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
