@@ -52,16 +52,16 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Python${{ matrix.python }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
 
       - name: Upgrade PIP
-        run: pip install --upgrade pip
+        run: python${{ matrix.python }} -m pip install --upgrade pip
 
       - name: Install ansible (${{ matrix.ansible }})
-        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
+        run: python${{ matrix.python }} -m pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
 
       - name: Make directory for ansible-test 
         run: |
@@ -118,22 +118,26 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Python${{ matrix.python }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
 
       - name: Upgrade PIP
-        run: pip install --upgrade pip
+        run: pythom${{ matrix.python }} -m pip install --upgrade pip
 
       - name: Install ansible (${{ matrix.ansible }})
-        run: pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
+        run: python${{ matrix.python }} -m pip install https://github.com/ansible/ansible/archive/${{ matrix.ansible }}.tar.gz --disable-pip-version-check
 
       - name: Make directory for ansible-test 
         run: |
           pwd
           mkdir -p ansible_collections/ibm/spectrum_virtualize
           rsync -av . ansible_collections/ibm/spectrum_virtualize --exclude ansible_collections/ibm/spectrum_virtualize
+          
+      - name: Install dependencies
+        run: python${{ matrix.python }} -m pip install paramiko
+
       - name: Run unit test cases
         run: ansible-test units -v --color --python ${{ matrix.python }} --docker --coverage
         working-directory: ./ansible_collections/ibm/spectrum_virtualize
